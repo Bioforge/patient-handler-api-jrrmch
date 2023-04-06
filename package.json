@@ -10,7 +10,7 @@
         "prisma-migrate-dev": "npx prisma migrate dev --name init && npx prisma generate",
         "prisma-generate": "npx prisma generate",
         "prisma-studio": "npx prisma studio",
-        "heroku-postbuild": "npx prisma migrate deploy && node server.js"
+        "heroku-postbuild": "npx prisma migrate deploy"
     },
     "keywords": [],
     "author": "Bioforge Health System LTD",
