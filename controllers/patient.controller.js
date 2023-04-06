@@ -27,6 +27,34 @@ const getPatients = async (req, res) => {
 };
 
 /**
+ * Get The Details of Last Patient
+ * @async
+ * @method
+ * @description - finds all the patients
+ * @param {object} req - request object
+ * @param {object} res - response object
+ * @returns {JSON} - returns the last patient details
+ * @throws {NotFoundError} - throws an error when the patient details can't be found
+ */
+const getLastPatientDetails = async (req, res) => {
+    try {
+        const patients = await patient.findMany({
+            orderBy: { createdAt: "desc" },
+            take: 1,
+        });
+
+        if (patient.length !== 1) {
+            return res.status(404).json({ success: false, message: "No Patient Found" });
+        }
+
+        return res.status(200).json({ success: true, message: "Last Patient Found", patient: patients[0] });
+    } catch (error) {
+        logger.error(error);
+        return res.json({ success: false, message: "Error Occured", error: error });
+    }
+};
+
+/**
  * Create Patient
  * @async
  * @method
@@ -145,6 +173,7 @@ const deletePatientById = async (req, res) => {
 
 module.exports = {
     getPatients,
+    getLastPatientDetails,
     createPatient,
     getPatientById,
     updatePatientById,
