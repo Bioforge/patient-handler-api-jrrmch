@@ -7,12 +7,10 @@
         "start": "node server.js",
         "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
         "dev": "nodemon --legacy-watch server.js",
-        "seed": "node helpers/seed.js",
-        "test": "npm run prisma-migrate-dev && jest --runInBand --testPathPattern=__test__ --forceExit",
-        "prisma-migrate-and-start": "npx prisma migrate deploy && node server.js",
         "prisma-migrate-dev": "npx prisma migrate dev --name init && npx prisma generate",
         "prisma-generate": "npx prisma generate",
-        "prisma-studio": "npx prisma studio"
+        "prisma-studio": "npx prisma studio",
+        "heroku-postbuild": "npx prisma migrate deploy && node server.js"
     },
     "keywords": [],
     "author": "Bioforge Health System LTD",
