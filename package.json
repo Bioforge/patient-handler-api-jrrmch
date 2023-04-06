@@ -1,0 +1,67 @@
+{
+    "name": "module_name",
+    "version": "1.0.0",
+    "description": "module_description",
+    "main": "server.js",
+    "scripts": {
+        "start": "NODE_ENV=prod node server.js",
+        "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
+        "dev": "NODE_ENV=dev nodemon --legacy-watch server.js",
+        "seed": "node helpers/seed.js",
+        "test": "NODE_ENV=test npm run prisma-migrate-dev && jest --runInBand --testPathPattern=__test__ --forceExit",
+        "prisma-migrate-and-start": "NODE_ENV=prod npx prisma migrate deploy && node server.js",
+        "prisma-migrate-dev": "npx prisma migrate dev --name init && npx prisma generate",
+        "prisma-generate": "npx prisma generate",
+        "prisma-studio": "npx prisma studio"
+    },
+    "keywords": [],
+    "author": "Bioforge Health System LTD",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.16.12",
+        "@babel/preset-env": "^7.16.11",
+        "jest": "26.6.0",
+        "jsdoc": "^3.6.7",
+        "nodemon": "^2.0.15",
+        "npm": "8.15.0",
+        "supertest": "^6.2.4",
+        "prisma": "^4.5.0"
+    },
+    "dependencies": {
+        "@faker-js/faker": "^7.5.0",
+        "@prisma/client": "^4.3.1",
+        "app-root-path": "^3.1.0",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.1",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "dotenv": "^8.6.0",
+        "express": "^4.17.1",
+        "express-jwt": "^6.0.0",
+        "helmet": "^4.6.0",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
+        "mongoose": "^5.13.2",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.9.1",
+        "nodemailer-sendgrid-transport": "^0.2.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-hook-form": "^7.10.1",
+        "react-router-dom": "^5.2.0",
+        "winston": "^3.8.2",
+        "winston-daily-rotate-file": "^4.7.1"
+    },
+    "jest": {
+        "verbose": true,
+        "testEnvironment": "node"
+    },
+    "prisma": {
+        "seed": "node prisma/seed.js"
+    },
+    "engines": {
+        "node": "16.17.0"
+    }
+}
