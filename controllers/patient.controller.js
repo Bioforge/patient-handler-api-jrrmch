@@ -67,7 +67,7 @@ const getLastPatientDetails = async (req, res) => {
 const createPatient = async (req, res) => {
     try {
         console.log(req.body);
-        const patientData = await patient.create({ data: req.body.patient });
+        const patientData = await patient.create({ data: req.body });
 
         return res.status(200).json({ success: true, message: "Created a new patient record", patient: patientData });
     } catch (error) {
