@@ -22,4 +22,5 @@ model Patient {
   admissionTime String?
   department String?
   doctor String?
+  createdAt DateTime @default(now())
 }
