@@ -14,6 +14,6 @@ router.route("/CreatePatient").post(createPatient);
 
 router.route("/GetLastPatientDetails").get(getLastPatientDetails);
 
-router.route("/GetPatientDataById/:patientId").get(getPatientById).put(updatePatientById).delete(deletePatientById);
+router.route("/GetPatientDataById/:patientId").get(getPatientById);
 
 module.exports = router;
