@@ -32,8 +32,8 @@ app.get("/", function (req, res) {
 
 // Listen to PORT
 const PORT = config.ENV === "test" ? 0 : config.PORT;
-app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`);
+app.listen(PORT, config.HOST, () => {
+    console.log(`Example app listening at http://${config.HOST}:${PORT}`);
 });
 
 app.use(function (err, req, res, next) {
