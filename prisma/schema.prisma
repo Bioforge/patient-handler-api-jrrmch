@@ -7,20 +7,44 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Patient {
-  id String @id @default(uuid())
-  patientId String?
+model drug_information {
+  drug_id                 String  @id @db.Uuid
+  generic_name            String?
+  indications             String?
+  description             String?
+  pharmacology            String?
+  administer_dosage_info  String?
+  interaction             String?
+  contraindications       String?
+  side_effects            String?
+  pregnancy_lactation     String?
+  precautions             String?
+  therapeutic_class       String?
+  storage_conditions      String?
+  type                    String?
+  use_special_populations String?
+  overdose_effects        String?
+  brand_name              String?
+  dosage_form             String?
+  strength                String?
+  manufacturer            String?
+  packet_size_and_price   String?
+}
+
+model patient {
+  id             String    @id @default(uuid())
+  patientId      String?
+  age            String?
+  sex            String?
+  department     String?
+  doctor         String?
+  address        String?
+  admissionTime  String?
+  contactNo      String?
+  fatherName     String?
+  maritalStatus  String?
+  patientName    String?
   registrationNo String?
-  patientName String?
-  fatherName String?
-  age String?
-  sex String?
-  maritalStatus String?
-  contactNo String?
-  religion String?
-  address String?
-  admissionTime String?
-  department String?
-  doctor String?
-  createdAt DateTime @default(now())
+  religion       String?
+  createdAt      DateTime? @default(now())
 }
